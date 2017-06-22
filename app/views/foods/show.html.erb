@@ -1,0 +1,117 @@
+<!-- navigation bar -->  
+<%= render "/nav" %>
+
+<!-- title -->
+<div id="content-title">
+  <div class="container"><%= @food.name %></div>
+</div>
+
+<!-- tab -->
+<div class="content-tab">
+  <div id="tab" class="container">
+    <ul class="nav nav-pills">
+    <% if @period_1 != nil %>
+      <li class="active vege_bg_color_dark">
+        <a href="#1b" data-toggle="tab">Refrigeration</a>
+      </li>
+    <% end %>
+    <% if @period_3 != nil %>
+      <li class="vege_bg_color_dark">
+        <a href="#3b" data-toggle="tab">Room temperature</a>
+      </li>
+    <% end %>
+    <% if @period_2 != nil %>
+      <li class="vege_bg_color_dark">
+        <a href="#2b" data-toggle="tab">Freezing</a>
+      </li>
+    <% end %>
+    </ul>
+
+    <!-- content -->
+    <div class="tab-content-parent vege_bg_color_dark">
+      <div class="tab-content clearfix">
+      
+        <!-- content1 Refrigeration -->
+        <% if @period_1 != nil %>
+        <div class="tab-pane active" id="1b">
+          <div class="row">
+            <div class="col-sm-6 col-xs-12 vertical-line">
+              <div class="content-space">
+                <%= image_tag("/food-images/#{@period_1.picture}", class: 'img-responsive content-image') %>
+                <div class="h4">
+                  <%= image_tag("004-time-1.png", class: 'tip-image') %>
+                  <%= @period_1.days %> days <small>(Preservation period)</small>
+                </div>
+                <div class="h4">
+                  <%= image_tag("002-thermometer.png", class: 'tip-image') %>
+                  6 degrees <small>(Recommended temp)</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+              <div class="content-space2">
+                <div class="h2">Refrigeration<br><small>Preservation method</small></div>
+                <div class="h4"><%= simple_format(@period_1.detail) %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <!-- content3 Room temperature -->
+        <% if @period_3 != nil %>
+        <div class="tab-pane" id="2b">
+          <div class="row">
+            <div class="col-sm-6 col-xs-12 vertical-line">
+              <div class="content-space">
+                <%= image_tag("/food-images/#{@period_3.picture}", class: 'img-responsive content-image') %>
+                <div class="h4">
+                  <%= image_tag("004-time-1.png", class: 'tip-image') %>
+                  <%= @period_3.days %> days <small>(Preservation period)</small>
+                </div>
+                <div class="h4">
+                  <%= image_tag("002-thermometer.png", class: 'tip-image') %>
+                  6 degrees <small>(Recommended temp)</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+              <div class="content-space2">
+                <div class="h2">Room temperature<br><small>Preservation method</small></div>
+                <div class="h4"><%= simple_format(@period_3.detail) %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+        <!-- content2 Freezing -->
+        <% if @period_2 != nil %>
+        <div class="tab-pane" id="2b">
+          <div class="row">
+            <div class="col-sm-6 col-xs-12 vertical-line">
+              <div class="content-space">
+                <%= image_tag("/food-images/#{@period_2.picture}", class: 'img-responsive content-image') %>
+                <div class="h4">
+                  <%= image_tag("004-time-1.png", class: 'tip-image') %>
+                  <%= @period_2.days %> days <small>(Preservation period)</small>
+                </div>
+                <div class="h4">
+                  <%= image_tag("002-thermometer.png", class: 'tip-image') %>
+                  6 degrees <small>(Recommended temp)</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+              <div class="content-space2">
+                <div class="h2">Freezing<br><small>Preservation method</small></div>
+                <div class="h4"><%= simple_format(@period_2.detail) %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
+</div>

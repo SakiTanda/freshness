@@ -1,0 +1,86 @@
+<!-- navigation bar -->  
+<%= render "/nav" %>
+
+<!-- search bar -->
+<%= form_tag({controller: "foods", action: "index"}, method: "get", class: "navbar-search-form") do %>
+  <nav class="search-fixed-under-nav">
+    <div class="form-search-group">
+      <%= select_tag(:category, options_for_select(
+        [
+          ['All items', 0],
+          ['Vegitables', 1],
+          ['Meats', 2],
+          ['Dairy products', 3]
+        ], @category_id
+      ), {:class => 'select-form-control'}) %>
+      <%= text_field_tag(:searchText, @search_text, class: 'search-text-form-control') %>
+      <%= submit_tag("Search", class: "btn btn-primary") %>
+    </div>        
+  </nav>
+
+  <!-- results info -->
+  <div class="results-fixed-under-search">
+   <span class="pull-left"><%= @foods.count %> results</span>
+   <span class="pull-right">Sort by:
+      <%= select_tag(:sort, options_for_select(
+        [
+          ['Food name A-Z', 0],
+          ['Food name Z-A', 1],
+          ['Longest period in fridge', 2],
+          ['Longest period in freezer', 3],
+          ['Longest period in room', 4]
+        ], @sort_id
+      ), {:onchange => "this.form.submit();"}) %>
+   </span>
+  </div>
+<% end %>
+
+<!-- results -->
+<div class="container" id="results-table">
+  <div class="row">
+
+    <!-- food item -->
+    <% @foods.each do |food| %>
+    <div class="col-md-3 col-sm-4 col-xs-6 result-item">
+      <table>
+        <tr>
+          <td>
+            <%= link_to image_tag("/food-images/#{food.picture}", class: 'img-responsive'), {controller: 'foods', action: 'show', id: food.id} %>
+          </td>
+        </tr>
+        <tr>
+        <!-- food name (change color) -->
+        <% if food.category_id == 1 %>
+          <td class="vege_color_dark result-item-link">
+        <% elsif food.category_id == 2 %>
+          <td class="meat_color_dark result-item-link">
+        <% elsif food.category_id == 3 %>
+          <td class="dairy_color_dark result-item-link">
+        <% end %>
+            <%= link_to food.name, {controller: 'foods', action: 'show', id: food.id} %>
+          </td>
+        </tr>
+        <!-- period info -->
+        <% food.periods.each do |period| %>
+          <% if period.place_id == 1 %>
+            <tr>
+              <td>Refrigerator: <%= period.days %> days</td>
+            </tr>
+          <% end %>
+          <% if period.place_id == 2 %>
+            <tr>
+              <td>Freezer: <%= period.days %> days</td>
+            </tr>
+          <% end %>
+          <% if period.place_id == 3 %>
+            <tr>
+              <td>Room temperature: <%= period.days %> days</td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+    <% end %>
+
+  </div>
+</div>

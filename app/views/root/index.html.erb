@@ -1,0 +1,61 @@
+<!-- navigation bar -->  
+<%= render "/nav" %>
+    
+<!-- social media -->
+<div id="sm">
+  <a href="http://www.facebook.com/share.php?u=http://192.168.1.200:3000/" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"><%= image_tag "facebook.png" %></a>
+  <a href="https://twitter.com/intent/tweet?button_hashtag=ZeroWaste&text=Check%20out%20our%20web%20application%20Freshness" data-size="large" data-url="http://192.168.1.200:3000/"><%= image_tag "twitter.png" %></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+
+<div id="index_content">
+  <!-- logo -->
+  <%= link_to image_tag("logo9.png"), {action: 'index', controller: 'root'} %>
+  <!-- search bar -->  
+  <%= form_tag({controller: "foods", action: "index"}, method: "get", class: "index_searchBar") do %>
+    <%= text_field_tag(:searchText) %>
+    <%= submit_tag("Search", class: "btn btn-primary") %>
+  <% end %>
+  <!-- or -->
+  <div id="index_or">or</div>
+</div>
+
+<!-- category buttons -->
+<div class="container text-center">
+  <%= form_tag({controller: "foods", action: "index"}, method: "get", class: "index_category") do %>
+    <div class="row">
+      <!-- meat -->
+      <div class="col-sm-3 col-xs-6 container_overlay">
+        <%= image_submit_tag("meat.jpg", class: 'img-responsive meat_color_dark', name: 'category', value: 2) %>
+        <!-- button animation -->
+        <div class="overlay meat_bg_color_dark">
+          <div class="text_overlay">Meat</div>
+        </div>
+      </div>
+      <!-- vegetable -->
+      <div class="col-sm-3 col-xs-6 container_overlay">
+        <%= image_submit_tag("vege.jpg", class: 'img-responsive vege_color_dark', name: 'category', value: 1) %>
+        <!-- button animation -->
+        <div class="overlay vege_bg_color_dark">
+          <div class="text_overlay">Vegetable</div>
+        </div>
+      </div>
+      <!-- dairy -->
+      <div class="col-sm-3 col-xs-6 container_overlay">
+        <%= image_submit_tag("dairy.jpg", class: 'img-responsive dairy_color_dark', name: 'category', value: 3) %>
+        <!-- button animation -->
+        <div class="overlay dairy_bg_color_dark">
+          <div class="text_overlay">Dairy</div>
+        </div>
+      </div>
+      <!-- all -->
+      <div class="col-sm-3 col-xs-6 container_overlay">
+        <%= image_submit_tag("allfood.jpg", class: 'img-responsive all_color_dark', name: 'category', value: 0) %>
+        <!-- button animation -->
+        <div class="overlay all_bg_color_dark">
+          <div class="text_overlay">All</div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<!-- end of category buttons -->

@@ -1,0 +1,121 @@
+﻿/* search bar */
+.search-fixed-under-nav {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  left: 0;
+  z-index: 1029;
+  border-width: 0 0 1px;
+  border-radius: 0;
+  background-color: #222;
+  border-color: #080808;
+}
+.navbar-search-form {
+  border: 0;
+}
+.form-search-group {
+  padding: 0 15px;
+  margin: 0 -15px 8px -15px;
+  text-align: center;
+}
+.select-form-control {
+  position: relative;
+  z-index: 2; 
+  width: 130px;
+  height: 33px;
+  margin: 0;
+  padding: 0px 5px;
+  border: thin solid #666666;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.search-text-form-control {
+  position: relative;
+  z-index: 2;
+  width: 260px;
+  height: 33px;
+  margin: 0;
+  padding: 0px 5px;
+  border: thin solid #666666;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+@media (max-width: 480px) {
+  .search-text-form-control {
+    width: 130px;
+  }
+  .select-form-control {
+    width: 100px;
+  }
+}
+
+/* results info */
+.results-fixed-under-search {
+  position: fixed;
+  top: 92px;
+  right: 0;
+  left: 0;
+  z-index: 1029;
+  height: 30px;
+  padding: 4px 15px;
+  border-bottom: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  background-color: white;
+}
+
+/* results */
+#results-table {
+  margin: 130px 0 0 0;
+  width: 100%;
+  padding: 0 10%;
+  font-size: 15px;
+}
+#results-table .result-item {
+  padding: 20px 0 0 0;
+  height: 280px;
+  border-bottom: 1px solid #cccccc;
+}
+#results-table td {
+  padding: 0 20px;
+}
+#results-table .result-item-link {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.1;
+  padding-bottom: 5px;
+}
+.result-item-link a,
+.result-item-link a:link,
+.result-item-link a:visited,
+.result-item-link a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 991px) {
+  #results-table {
+    font-size: 16px;
+  }
+  #results-table .result-item {
+    height: 300px;
+  }
+}
+@media (max-width: 580px) {
+  #results-table {
+    font-size: 15px;
+  }
+  #results-table .result-item {
+    height: 270px;
+  }  
+  #results-table td {
+    padding: 0 15px;
+  }
+  #results-table .result-item-link {
+    font-size: 20px;
+  }
+}
+@media (max-width: 480px) {
+  #results-table .result-item {
+    height: 240px;
+  }
+}
