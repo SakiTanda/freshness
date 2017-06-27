@@ -19,8 +19,8 @@
       </li>
     <% end %>
     <% if @period_3 != nil %>
-      <li class="vege_bg_color_dark">
-        <a href="#3b" data-toggle="tab">Room temperature</a>
+      <li class="active vege_bg_color_dark">
+        <a href="#1b" data-toggle="tab">Room temperature</a>
       </li>
     <% end %>
     <% if @period_2 != nil %>
@@ -35,7 +35,7 @@
       <div class="tab-content clearfix">
       
         <!-- content1 Refrigeration -->
-        <% if @period_1 != nil %>
+        <% if not @period_1.nil? %>
         <div class="tab-pane active" id="1b">
           <div class="row">
             <div class="col-sm-6 col-xs-12 vertical-line">
@@ -47,7 +47,11 @@
                 </div>
                 <div class="h4">
                   <%= image_tag("002-thermometer.png", class: 'tip-image') %>
-                  6 degrees <small>(Recommended temp)</small>
+                  <% if @food.category_id == 1 %>6 degrees
+                  <% elsif @food.category_id == 2 %>0 degrees
+                  <% elsif @food.category_id == 3 %>3 degrees
+                  <% end %>
+                  <small> (Recommended temp)</small>
                 </div>
               </div>
             </div>
@@ -60,9 +64,10 @@
           </div>
         </div>
         <% end %>
+
         <!-- content3 Room temperature -->
-        <% if @period_3 != nil %>
-        <div class="tab-pane" id="2b">
+        <% if not @period_3.nil? %>
+        <div class="tab-pane active" id="1b">
           <div class="row">
             <div class="col-sm-6 col-xs-12 vertical-line">
               <div class="content-space">
@@ -73,7 +78,7 @@
                 </div>
                 <div class="h4">
                   <%= image_tag("002-thermometer.png", class: 'tip-image') %>
-                  6 degrees <small>(Recommended temp)</small>
+                  10 to 14 degrees <small>(Recommended temp)</small>
                 </div>
               </div>
             </div>
@@ -88,7 +93,7 @@
         <% end %>
 
         <!-- content2 Freezing -->
-        <% if @period_2 != nil %>
+        <% if not @period_2.nil? %>
         <div class="tab-pane" id="2b">
           <div class="row">
             <div class="col-sm-6 col-xs-12 vertical-line">
@@ -100,7 +105,7 @@
                 </div>
                 <div class="h4">
                   <%= image_tag("002-thermometer.png", class: 'tip-image') %>
-                  6 degrees <small>(Recommended temp)</small>
+                  -18 degrees <small>(Recommended temp)</small>
                 </div>
               </div>
             </div>
