@@ -2,27 +2,20 @@ class FoodsController < ApplicationController
 
   def index
     # initialize
-    if params[:searchText] == nil
-      params[:searchText] = ""
-    end
-    if params[:category] == nil
-      params[:category] = "0"
-    end
-    if params[:sort] == nil
-      params[:sort] = "0"
-    end
-
-    params[:searchText].strip!
-    params[:category].strip!
-    params[:sort].strip!
+    params[:search_food_name] = '' if params[:search_food_name].nil?
+    params[:search_category_id] = '0' if params[:search_category_id].nil?
+    params[:sort_id] = '0' if params[:sort_id].nil?
+    params[:search_food_name].strip!
+    params[:search_category_id].strip!
+    params[:sort_id].strip!
 
     # call search method
-    @foods = Food.search(params[:searchText], params[:category], params[:sort])
+    @foods = Search::Food.new(params).search
     
     # define selected values
-    @search_text = params[:searchText]
-    @category_id = params[:category]
-    @sort_id = params[:sort]
+    @search_food_name = params[:search_food_name]
+    @search_category_id = params[:search_category_id]
+    @sort_id = params[:sort_id]
   end
 
   def show 

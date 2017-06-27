@@ -8,15 +8,15 @@
 <%= form_tag({controller: "foods", action: "index"}, method: "get", class: "navbar-search-form") do %>
   <nav class="search-fixed-under-nav">
     <div class="form-search-group">
-      <%= select_tag(:category, options_for_select(
+      <%= select_tag(:search_category_id, options_for_select(
         [
           ['All items', 0],
           ['Vegitables', 1],
           ['Meats', 2],
           ['Dairy products', 3]
-        ], @category_id
+        ], @search_category_id
       ), {:class => 'select-form-control'}) %>
-      <%= text_field_tag(:searchText, @search_text, class: 'search-text-form-control') %>
+      <%= text_field_tag(:search_food_name, @search_food_name, class: 'search-text-form-control') %>
       <%= submit_tag("Search", class: "btn btn-primary") %>
     </div>        
   </nav>
@@ -25,7 +25,7 @@
   <div class="results-fixed-under-search">
    <span class="pull-left"><%= @foods.count %> results</span>
    <span class="pull-right">Sort by:
-      <%= select_tag(:sort, options_for_select(
+      <%= select_tag(:sort_id, options_for_select(
         [
           ['Food name A-Z', 0],
           ['Food name Z-A', 1],

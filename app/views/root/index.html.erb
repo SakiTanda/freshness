@@ -15,7 +15,7 @@
   <%= link_to image_tag("logo9.png"), {action: 'index', controller: 'root'} %>
   <!-- search bar -->  
   <%= form_tag({controller: "foods", action: "index"}, method: "get", class: "index_searchBar") do %>
-    <%= text_field_tag(:searchText) %>
+    <%= text_field_tag(:search_food_name) %>
     <%= submit_tag("Search", class: "btn btn-primary") %>
   <% end %>
   <!-- or -->
@@ -28,7 +28,7 @@
     <div class="row">
       <!-- meat -->
       <div class="col-sm-3 col-xs-6 container_overlay">
-        <%= image_submit_tag("meat.jpg", class: 'img-responsive meat_color_dark', name: 'category', value: 2) %>
+        <%= image_submit_tag("meat.jpg", class: 'img-responsive meat_color_dark', name: 'search_category_id', value: 2) %>
         <!-- button animation -->
         <div class="overlay meat_bg_color_dark">
           <div class="text_overlay">Meat</div>
@@ -36,7 +36,7 @@
       </div>
       <!-- vegetable -->
       <div class="col-sm-3 col-xs-6 container_overlay">
-        <%= image_submit_tag("vege.jpg", class: 'img-responsive vege_color_dark', name: 'category', value: 1) %>
+        <%= image_submit_tag("vege.jpg", class: 'img-responsive vege_color_dark', name: 'search_category_id', value: 1) %>
         <!-- button animation -->
         <div class="overlay vege_bg_color_dark">
           <div class="text_overlay">Vegetable</div>
@@ -44,7 +44,7 @@
       </div>
       <!-- dairy -->
       <div class="col-sm-3 col-xs-6 container_overlay">
-        <%= image_submit_tag("dairy.jpg", class: 'img-responsive dairy_color_dark', name: 'category', value: 3) %>
+        <%= image_submit_tag("dairy.jpg", class: 'img-responsive dairy_color_dark', name: 'search_category_id', value: 3) %>
         <!-- button animation -->
         <div class="overlay dairy_bg_color_dark">
           <div class="text_overlay">Dairy</div>
@@ -52,7 +52,7 @@
       </div>
       <!-- all -->
       <div class="col-sm-3 col-xs-6 container_overlay">
-        <%= image_submit_tag("allfood.jpg", class: 'img-responsive all_color_dark', name: 'category', value: 0) %>
+        <%= image_submit_tag("allfood.jpg", class: 'img-responsive all_color_dark', name: 'search_category_id', value: 0) %>
         <!-- button animation -->
         <div class="overlay all_bg_color_dark">
           <div class="text_overlay">All</div>
