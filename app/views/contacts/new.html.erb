@@ -1,0 +1,130 @@
+<!-- specific meta --> 
+<%= set_meta_tags title: 'Contact page' %>
+<%= set_meta_tags description: 'Contact us through email' %>
+
+<!-- specific css --> 
+<%= stylesheet_link_tag params[:controller] %> 
+
+<!-- navigation bar -->  
+<%= render "/nav" %>
+
+<!-- search bar -->
+    <script>
+    
+        function $(id) {
+            var element = document.getElementById(id);
+            if (element == null) {
+                alert('Programmer error: ' + id + ' does not exist.');
+            }
+            return element;
+        }
+        
+        function setError(id, errId, errMessage) {
+            $(errId).innerHTML = errMessage;
+            $(errId).setAttribute("class", "error");
+            $(id).focus();
+            return;
+        }
+        
+        function clear(errId) {
+            $(errId).innerHTML = ''; 
+            $(errId).setAttribute("class", "nonError");                
+            return;
+        }
+        
+        function formValidate() {
+            var ret = true;
+                                            
+            //txtName
+            id ='txtName';
+            errId = 'errName';
+            
+            if (testTxtName(id) == false) {
+                setError(id, errId, 'Please enter the name.');
+                
+                
+                ret = false;
+            } else if (testTxtName_2(id) == false) {
+                    setError(id, errId, 'Please enter the name with only alphabetic character.');
+                    ret = false;
+            } else {
+                clear(errId);
+            }
+            
+            //txtEmail
+            id ='txtEmail';
+            errId = 'errEmail';
+            if (testTxtEmail(id) == false) {
+                setError(id, errId, "Please enter the email.");
+                ret = false;
+            } else if (testTxtEmail_2(id) == false){
+                setError(id, errId, "Please enter the valid email.");
+                ret = false;
+            } else {
+                clear(errId);
+            }
+            
+            //taMassage
+            id ='taMessage';
+            errId = 'errMessage';
+            if (testTaMessage(id) == false) {
+                setError(id, errId, "Please enter the message.");
+                ret = false;
+            } else {
+                clear(errId);
+            }
+            
+            return ret;
+        }
+        
+        // txtName
+        function testTxtName(id) {
+            return ($(id).value.trim().length != 0);
+        }
+        function testTxtName_2(id) {
+            var ret = $(id).value.trim().match(/[^a-zA-Z]/g);
+            return (ret == null);
+        }
+        
+        // txtEmail
+        function testTxtEmail(id) {
+            return ($(id).value.trim().length != 0);
+        }
+        function testTxtEmail_2(id) {
+            var email = $(id).value.trim();
+            var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var ret = email.match(emailFormat);
+            return (ret != null);
+        }
+        
+        // taComment
+        function testTaMassage(id) {
+            return ($(id).value.trim().length != 0);
+        }
+
+    </script> 
+
+<!-- content -->
+<div id="mainContact">
+  <div id="titleContact">Contact Us</div>
+  <%= image_tag("house.png") %>
+  <%= image_tag("house.png") %>
+  <%= image_tag("house.png") %>
+  <div id="address">3700 Willingdon Ave, Burnaby,<br>BC V5G 3H2</div>
+              
+  <!-- form -->
+  <%= form_for @contact, html:{onsubmit:"return formValidate();"} do |f| %>
+    <div id="errName" class="nonError"></div>
+    <%= f.text_field :name, :class => "form-control", :id => "txtName", :placeholder => "Enter name" %>       
+    <div id="errEmail" class="nonError"></div>
+    <%= f.email_field :email, :class => "form-control", :id => "txtEmail", :placeholder => "Enter email" %>       
+    <div id="errSubject" class="nonError"></div>
+    <%= f.text_field :subject, :class => "form-control", :id => "txtSubject", :placeholder => "Enter subject" %>       
+    <div id="errComment" class="nonError"></div>
+    <%= f.text_area :message, :class => "form-control", :id => "taMessage", :placeholder => "Enter message", :rows => "4" %>       
+    <div id="sendButtonArea"><%= f.submit "Send", :class => "btn btn-primary", :id => "sendButton" %></div>                    
+  <% end %>
+</div>
+          
+
+

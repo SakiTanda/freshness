@@ -51,15 +51,24 @@
   opacity:0.6;
   cursor:pointer
 }
+#notice {
+  position: absolute;
+  top: 55px;
+  left: 15px;
+  color: green;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 /* social media links */
 #sm {
-    position: absolute;
-    top: 70px;
-    right: 20px;
+  position: absolute;
+  top: 70px;
+  right: 20px;
 }
 #sm img {
-    margin-left: 5px;
-    width: 40px;
+  margin-left: 5px;
+  width: 40px;
 }
 #sm img:hover {
   transform: scale(1.1);
