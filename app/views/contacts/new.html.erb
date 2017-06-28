@@ -8,102 +8,6 @@
 <!-- navigation bar -->  
 <%= render "/nav" %>
 
-<!-- search bar -->
-    <script>
-    
-        function $(id) {
-            var element = document.getElementById(id);
-            if (element == null) {
-                alert('Programmer error: ' + id + ' does not exist.');
-            }
-            return element;
-        }
-        
-        function setError(id, errId, errMessage) {
-            $(errId).innerHTML = errMessage;
-            $(errId).setAttribute("class", "error");
-            $(id).focus();
-            return;
-        }
-        
-        function clear(errId) {
-            $(errId).innerHTML = ''; 
-            $(errId).setAttribute("class", "nonError");                
-            return;
-        }
-        
-        function formValidate() {
-            var ret = true;
-                                            
-            //txtName
-            id ='txtName';
-            errId = 'errName';
-            
-            if (testTxtName(id) == false) {
-                setError(id, errId, 'Please enter the name.');
-                
-                
-                ret = false;
-            } else if (testTxtName_2(id) == false) {
-                    setError(id, errId, 'Please enter the name with only alphabetic character.');
-                    ret = false;
-            } else {
-                clear(errId);
-            }
-            
-            //txtEmail
-            id ='txtEmail';
-            errId = 'errEmail';
-            if (testTxtEmail(id) == false) {
-                setError(id, errId, "Please enter the email.");
-                ret = false;
-            } else if (testTxtEmail_2(id) == false){
-                setError(id, errId, "Please enter the valid email.");
-                ret = false;
-            } else {
-                clear(errId);
-            }
-            
-            //taMassage
-            id ='taMessage';
-            errId = 'errMessage';
-            if (testTaMessage(id) == false) {
-                setError(id, errId, "Please enter the message.");
-                ret = false;
-            } else {
-                clear(errId);
-            }
-            
-            return ret;
-        }
-        
-        // txtName
-        function testTxtName(id) {
-            return ($(id).value.trim().length != 0);
-        }
-        function testTxtName_2(id) {
-            var ret = $(id).value.trim().match(/[^a-zA-Z]/g);
-            return (ret == null);
-        }
-        
-        // txtEmail
-        function testTxtEmail(id) {
-            return ($(id).value.trim().length != 0);
-        }
-        function testTxtEmail_2(id) {
-            var email = $(id).value.trim();
-            var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            var ret = email.match(emailFormat);
-            return (ret != null);
-        }
-        
-        // taComment
-        function testTaMassage(id) {
-            return ($(id).value.trim().length != 0);
-        }
-
-    </script> 
-
 <!-- content -->
 <div id="mainContact">
   <div id="titleContact">Contact Us</div>
@@ -113,16 +17,23 @@
   <div id="address">3700 Willingdon Ave, Burnaby,<br>BC V5G 3H2</div>
               
   <!-- form -->
-  <%= form_for @contact, html:{onsubmit:"return formValidate();"} do |f| %>
-    <div id="errName" class="nonError"></div>
-    <%= f.text_field :name, :class => "form-control", :id => "txtName", :placeholder => "Enter name" %>       
-    <div id="errEmail" class="nonError"></div>
+  <!--%= form_for @contact, html:{onsubmit:"return formValidate();"} do |f| %-->
+  <%= form_for @contact do |f| %>
+    <!-- name -->
+    <div class="error"><%= @contact.errors.messages[:name][0] if @contact.errors.messages[:name].present? %></div>
+    <%= f.text_field :name, :class => "form-control", :id => "txtName", :placeholder => "Enter name" %>
+    <!-- email -->
+    <div class="error"><%= @contact.errors.messages[:email][0] if @contact.errors.messages[:email].present? %></div>
     <%= f.email_field :email, :class => "form-control", :id => "txtEmail", :placeholder => "Enter email" %>       
-    <div id="errSubject" class="nonError"></div>
+    <!-- subject -->
+    <div class="error"><%= @contact.errors.messages[:subject][0] if @contact.errors.messages[:subject].present? %></div>
     <%= f.text_field :subject, :class => "form-control", :id => "txtSubject", :placeholder => "Enter subject" %>       
-    <div id="errComment" class="nonError"></div>
+    <!-- message -->
+    <div class="error"><%= @contact.errors.messages[:message][0] if @contact.errors.messages[:message].present? %></div>
     <%= f.text_area :message, :class => "form-control", :id => "taMessage", :placeholder => "Enter message", :rows => "4" %>       
+    <!-- send button -->
     <div id="sendButtonArea"><%= f.submit "Send", :class => "btn btn-primary", :id => "sendButton" %></div>                    
+
   <% end %>
 </div>
           
