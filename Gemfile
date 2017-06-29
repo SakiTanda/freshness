@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # add
 gem 'meta-tags'
 gem 'seed-fu'
+gem 'gmaps4rails'

@@ -2,6 +2,10 @@ class ContactsController < ApplicationController
 
   def new 
     @contact = Contact.new
+
+    
+    #@hash = gmaps4rails('[{"lng":"30.252442359924316", "lat":"59.92999013067258"}]')
+
   end
 
   def create

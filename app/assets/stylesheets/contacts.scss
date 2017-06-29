@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #mainContact {
-    margin: 60px 0 0 0;
+    margin: 75px 0 0 0;
     padding: 0;
     width: 100%;
     display: block;
@@ -13,7 +13,7 @@
     color: #168316;
 }
 #titleContact {
-    margin-top: 30px;
+    margin: 25px 0;
     font-family: Consolas;
     font-weight: bold;
     font-size: 30px;
@@ -26,9 +26,15 @@
     font-size: 15px;
     margin-bottom: 15px;
 }
+#map {
+  margin: auto;
+  margin-bottom: 40px;
+  width: 800px;
+  height: 350px;
+}
 #mainContact form {
     margin: auto;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     width: 500px;
     text-align: left;
 }
