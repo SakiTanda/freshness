@@ -59,3 +59,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'meta-tags'
 gem 'seed-fu'
 gem 'gmaps4rails'
+gem 'jquery-turbolinks'

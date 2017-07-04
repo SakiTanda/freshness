@@ -28,7 +28,7 @@
 }
 #map {
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   width: 800px;
   height: 350px;
 }
@@ -71,8 +71,9 @@
 
 /* responsible design */
 @media screen and (max-width: 768px){
-    #mainContact form { width: 350px; }
+  #mainContact form { width: 350px; }
+  /*#map { width: 85%; }*/
 }
 @media screen and (max-width: 480px){
-    #mainContact form { width: 300px; }
+  #mainContact form { width: 300px; }
 }
