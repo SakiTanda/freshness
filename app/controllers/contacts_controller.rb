@@ -10,9 +10,10 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    ::MailSenderMailer.inquiry(@contact).deliver
+    #::MailSenderMailer.inquiry(@contact).deliver
     respond_to do |format|
       if @contact.save
+        ::MailSenderMailer.inquiry(@contact).deliver
         format.html { redirect_to root_path, notice: 'Thanks for emailing us.' }
       else
         format.html { render 'new' }

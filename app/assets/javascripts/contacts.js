@@ -19,10 +19,9 @@ function initMap() {
   );
 };
 
-
-//$(document).ready(mapFunc);
-$(document).on('turbolinks:load', initMap);
-//google.maps.event.addDomListener(window, 'load', initMap);
+// call initMap when page reload
 google.maps.event.addDomListener(window, 'page:load', initMap);
+// call initMap when page transition
+$(document).on('turbolinks:load', initMap);
 
 

@@ -7,7 +7,7 @@ class Contact < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-,]+\.[a-z]+\z/i
   validates :email,
     presence: {message: "Please fill in your email."},
-    uniqueness: {message: "This email address is not unique."},
+    #uniqueness: {message: "This email address is not unique."},
     format: {with: VALID_EMAIL_REGEX, message: "Please fill in a valid email address."},
     length: {maximum: 30, message: "Maximum length of the email is 30."}
 
