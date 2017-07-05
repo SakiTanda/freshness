@@ -1,4 +1,5 @@
 function initMap() {
+  //alert('ok');
   handler = Gmaps.build('Google');
   handler.buildMap({ 
       provider: {Zoom: 11}, 
@@ -20,7 +21,7 @@ function initMap() {
 };
 
 // call initMap when page reload
-google.maps.event.addDomListener(window, 'page:load', initMap);
+$(document).ready(initMap);
 // call initMap when page transition
 $(document).on('turbolinks:load', initMap);
 
