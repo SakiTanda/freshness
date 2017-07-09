@@ -14,7 +14,7 @@ module ApplicationHelper
       title: 'Freshness',
       type: 'website',
       url: 'https://obscure-mesa-98847.herokuapp.com',
-      image: image_url('logo10101010101010101010.png'),
+      image: image_url('logo10.png'),
       site_name: 'Freshness',
       description: "Freshness provides the food preservation methods for you to keep food fresh as long as you can. Let's reduce food waste for global environment by using Freshness!"
     },
