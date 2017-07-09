@@ -9,13 +9,9 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
 # Use sqlite3 as the database for Active Record
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'sqlite3', :group => [:development, :test]
 # Use progsreSQL instead of sqlite3 in Heroku
-group :production do
-  gem 'pg'
-end
+gem 'pg', :group => [:production]
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
