@@ -55,9 +55,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "freshness_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  # add mail setting
-  config.action_mailer.smtp_settings = { port: 25 }
-
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -84,4 +81,21 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # add mail settings
+  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'https://obscure-mesa-98847.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :domain => 'obscure-mesa-98847.herokuapp.com',
+    :user_name => 'sakitsukuda@gmail.com',
+    :password => 'mqcdkjyfnwtprjgd',
+    :authentication => :login,
+    :enable_starttls_auto => true
+  } 
+
 end
