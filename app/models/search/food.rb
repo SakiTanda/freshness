@@ -32,7 +32,7 @@ class Search::Food < ApplicationRecord
 
     # search more with conditions
     results = results.where("category_id = ?", @category_id) if @category_id != '0'
-    results = results.where("name LIKE ?", "%#{@food_name}%") if not @food_name.empty?
+    results = results.where("LOWER(name) LIKE ?", "%#{@food_name.downcase}%") if not @food_name.empty?
     
     # create order statement
     if @sort_id == '1'
