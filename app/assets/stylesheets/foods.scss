@@ -4,6 +4,10 @@
 
 /********** result page **********/
 /* search bar */
+/* override */
+.navbar-fixed-top {
+  border: 0;
+}
 .search-fixed-under-nav {
   position: fixed;
   top: 50px;
@@ -27,21 +31,28 @@
   position: relative;
   z-index: 2; 
   width: 130px;
-  height: 33px;
+  height: 34px;
   margin: 0;
   padding: 0px 5px;
-  border: thin solid #666666;
+  border: 1px solid #666666;
+  border-right: 0;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
+  background-color: white;
 }
 .search-text-form-control {
   position: relative;
   z-index: 2;
   width: 260px;
-  height: 33px;
-  margin: 0;
+  height: 34px;
+  margin-right: 5px;
   padding: 0px 5px;
-  border: thin solid #666666;
+  border: 1px solid #666666;
+  border-left: 0;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
@@ -61,13 +72,16 @@
   right: 0;
   left: 0;
   z-index: 1029;
-  height: 30px;
-  padding: 4px 15px;
+  height: 34px;
+  padding: 3px 15px;
   border-bottom: 1px solid #cccccc;
   border-top: 1px solid #cccccc;
   background-color: white;
 }
-
+/* override */
+.pull-left {
+  padding-top: 3px;
+}
 /* results */
 #results-table {
   margin: 130px 0 0 0;
