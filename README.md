@@ -15,3 +15,4 @@ This web application is developed by Ruby on Rails to practice developing for Ra
 * gmaps4rails 2.1.2
 
 
+ok
