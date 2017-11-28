@@ -9,6 +9,7 @@ module ApplicationHelper
   end
   
   def default_meta_tags 
+  {
     site: 'Freshness',
     reverse: true,
     title: 'Index page',
@@ -28,6 +29,7 @@ module ApplicationHelper
     fb: {
       app_id: '110529839531578'
     }
+  }
   end
 
 end
