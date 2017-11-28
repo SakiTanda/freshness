@@ -1,0 +1,65 @@
+﻿/*********************** for common components ***************************/
+@import 'colors';
+
+#body {
+  background-color: #fcfbf9;
+}
+
+/* navigation bar */
+.navbar-brand {
+  img {
+    height: 30px;
+  }
+}
+/* override to bootstrap */
+.navbar {
+  border-radius: 0px;
+}
+.navbar-fixed-top {
+  border-width: 0;
+}
+
+/* color for each category */
+.vege_bg_color_dark{
+  color: white;
+  background-color: $green;
+}
+.vege_bg_color_light{
+  color: $dark_green;
+  background-color: $light_green;
+}
+.vege_color_dark{
+  color: $dark_green;
+}
+.meat_bg_color_dark{
+  color: white;
+  background-color: $red;
+}
+.meat_bg_color_light{
+  color: $red;
+  background-color: $light_red;
+}
+.meat_color_dark{
+  color: $red;
+}
+.dairy_bg_color_dark{
+  color: white;
+  background-color: $blue;
+} 
+.dairy_bg_color_light{
+  color: $dark_blue;
+  background-color: $light_blue;
+}
+.dairy_color_dark{
+  color: $dark_blue;
+}
+.all_bg_color_dark{
+  color: white;
+  background-color: $yellow;
+}
+.all_color_dark{
+  color: $yellow;
+}
+
+
+

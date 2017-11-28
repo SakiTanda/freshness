@@ -1,0 +1,77 @@
+#mainContact {
+  margin: 75px 0 0 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  font-size: 21px;
+  color: #168316;
+  img {
+    margin: 15px 5px;
+    width: 22px;
+  }
+  form {
+    margin: auto;
+    padding-bottom: 20px;
+    width: 500px;
+    text-align: left;
+  }
+  form {
+    input {
+      margin: 0 0 8px 0;
+      border: 1px solid black;
+      font-family: Arial;
+      font-size: 15px;
+    }
+    textarea {
+      margin: 0 0 10px 0;
+      border: 1px solid black;
+      font-size: 15px;
+      font-family: Arial;
+    }
+    #sendButtonArea {
+      text-align: right;
+    }
+    #sendButton {
+      margin: 0;
+      padding: 3px;
+      width: 60px;
+    }
+    div {
+      font-size: 15px;
+      color: red;
+    }
+  }
+}
+#titleContact {
+    margin: 25px 0;
+    font-family: Consolas;
+    font-weight: bold;
+    font-size: 30px;
+}
+#address {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+#map {
+  margin: auto;
+  margin-bottom: 60px;
+  width: 800px;
+  height: 350px;
+}
+.error {
+    display: inline;
+}
+.nonError {
+    display: none;
+}
+
+/* responsible design */
+@media screen and (max-width: 768px){
+  #mainContact form { width: 350px; }
+  /*#map { width: 85%; }*/
+}
+@media screen and (max-width: 480px){
+  #mainContact form { width: 300px; }
+}
