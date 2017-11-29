@@ -20,9 +20,6 @@ class FoodsController < ApplicationController
 
   def show 
     @food = Food.find(params[:id])
-    @period_1 = Period.find_by(food_id: @food.id, place_id: 1)
-    @period_2 = Period.find_by(food_id: @food.id, place_id: 2)
-    @period_3 = Period.find_by(food_id: @food.id, place_id: 3)
   end 
 
   private

@@ -65,3 +65,10 @@ gem 'gmaps4rails'
 gem 'jquery-turbolinks'
 gem 'heroku'
 gem 'newrelic_rpm'
+gem 'nokogiri'
+group :test do
+  gem 'spring-commands-rspec', '~> 1.0.1'
+  gem 'capybara', '~> 2.2.1'
+  gem 'factory_girl_rails', '~> 4.4.1' 
+end
+

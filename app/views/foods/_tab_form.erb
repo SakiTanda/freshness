@@ -1,0 +1,41 @@
+<!-- model presenter class -->
+<% p = FoodPresenter.new(@food, self) %>
+
+<div class="content-tab">
+  <div id="tab" class="container">
+  
+    <!-- tab button -->
+    <ul class="nav nav-pills">
+      <%= p.ref_tab_button_block %>
+      <%= p.room_tab_button_block %>
+      <%= p.freez_tab_button_block %>
+    </ul>
+
+    <!-- tab content -->
+  <% if p.category_id == 2 %>
+    <div class="tab-content-parent meat_bg_color_dark">
+  <% elsif p.category_id == 3 %>
+    <div class="tab-content-parent dairy_bg_color_dark">
+  <% else %>
+    <div class="tab-content-parent vege_bg_color_dark">
+  <% end %>
+      <div class="tab-content clearfix">
+        <!-- content1 Refrigeration -->
+        <% if @food.refrigeration_period.present? %>
+          <%= render 'tab_content_form1', {period: @food.refrigeration_period, method: 'Refrigeration'} %>
+        <% end %>
+
+        <!-- content3 Room temperature -->
+        <% if @food.room_period.present? %>
+          <%= render 'tab_content_form1', {period: @food.room_period, method: 'Room temperature'} %>
+        <% end %>
+
+        <!-- content2 Freezing -->
+        <% if @food.freezing_period.present? %>
+          <%= render 'tab_content_form2', {period: @food.freezing_period, method: 'Freezing'} %>
+        <% end %>
+      </div>
+    </div>
+    
+  </div>
+</div>

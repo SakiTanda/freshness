@@ -1,0 +1,24 @@
+<div class="tab-pane active" id="1b">
+  <div class="row">
+    <div class="col-sm-6 col-xs-12 vertical-line">
+      <div class="content-space">
+        <%= image_tag("/food-images/#{period.picture}", class: 'img-responsive content-image') %>
+        <div class="h4">
+          <%= image_tag("004-time-1.png", class: 'tip-image') %>
+          <%= period.days %> days <small>(Preservation period)</small>
+        </div>
+        <div class="h4">
+          <%= image_tag("002-thermometer.png", class: 'tip-image') %>
+          <%= period.temperature %>
+          <small> (Recommended temp)</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+      <div class="content-space2">
+        <div class="h2"><%= method %><br><small>Preservation method</small></div>
+        <div class="h4"><%= simple_format(period.detail) %></div>
+      </div>
+    </div>
+  </div>
+</div>
