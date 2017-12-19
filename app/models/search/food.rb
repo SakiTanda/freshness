@@ -15,20 +15,8 @@ class Search::Food < ApplicationRecord
   end
 
   def search
-    # create outer join statement
-    sJoin = "
-      LEFT OUTER JOIN periods AS P1
-        ON P1.food_id = foods.id
-        AND P1.place_id = 1
-      LEFT OUTER JOIN periods AS P2
-        ON P2.food_id = foods.id
-        AND P2.place_id = 2
-      LEFT OUTER JOIN periods AS P3
-        ON P3.food_id = foods.id
-        AND P3.place_id = 3"
-
     # search all items
-    results = ::Food.joins(sJoin).all
+    results = ::Food.all
 
     # search more with conditions
     results = results.where("category_id = ?", @category_id) if @category_id != '0'
@@ -36,19 +24,20 @@ class Search::Food < ApplicationRecord
     
     # create order statement
     if @sort_id == '1'
-      sOrder = "foods.name DESC"
+      results = results.order('foods.name DESC')
     elsif @sort_id == '2'
-      sOrder = "P1.days DESC, foods.name ASC"
+      results = results.left_outer_joins(:refrigeration_period)
+      results = results.order('periods.days DESC, foods.name ASC')
     elsif @sort_id == '3'
-      sOrder = "P2.days DESC, foods.name ASC"
+      results = results.left_outer_joins(:freezing_period)
+      results = results.order('periods.days DESC, foods.name ASC')
     elsif @sort_id == '4'
-      sOrder = "P3.days DESC, foods.name ASC"
+      results = results.left_outer_joins(:room_period)
+      results = results.order('periods.days DESC, foods.name ASC')
     else 
-      sOrder = "foods.name ASC"
+      results = results.order('foods.name ASC')
     end
 
-    # order
-    results = results.order(sOrder)
   end
 
 end

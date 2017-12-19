@@ -2,15 +2,15 @@
 <% set_meta_tags title: 'Contact page' %>
 <% set_meta_tags description: 'Contact us through email' %>
 
-<!-- title -->
-<% @title = "Contact page" %>
-
 <!-- navigation bar -->  
 <%= render "/nav" %>
 
 <!-- content -->
 <div id="mainContact">
-  <div id="titleContact">Contact Form</div>
+
+  <!-- title -->
+  <% @title = "Contact form" %>
+  <div id="titleContact"><%= @title %></div>
   
   <!-- form -->
   <%= form_for @contact do |f| %>

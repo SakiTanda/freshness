@@ -67,23 +67,23 @@
             <%= link_to food.name, {controller: 'foods', action: 'show', id: food.id} %>
           </td>
         </tr>
-        <!-- period info -->
-        <% food.periods.each do |period| %>
-          <% if period.place_id == 1 %>
-            <tr>
-              <td>Refrigerator: <%= period.days %> days</td>
-            </tr>
-          <% end %>
-          <% if period.place_id == 2 %>
-            <tr>
-              <td>Freezer: <%= period.days %> days</td>
-            </tr>
-          <% end %>
-          <% if period.place_id == 3 %>
-            <tr>
-              <td>Room temperature: <%= period.days %> days</td>
-            </tr>
-          <% end %>
+        <!-- period Refrigeration -->
+        <% if food.refrigeration_period.present? %>
+          <tr>
+            <td>Refrigerator: <%= food.refrigeration_period.days %> days</td>
+          </tr>
+        <% end %>
+        <!-- period Freezing -->
+        <% if food.freezing_period.present? %>
+          <tr>
+            <td>Freezer: <%= food.freezing_period.days %> days</td>
+          </tr>
+        <% end %>
+        <!-- period Room temperature -->
+        <% if food.room_period.present? %>
+          <tr>
+            <td>Room temperature: <%= food.room_period.days %> days</td>
+          </tr>
         <% end %>
       </table>
     </div>
