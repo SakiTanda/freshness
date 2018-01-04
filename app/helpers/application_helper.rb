@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include HtmlBuilder
 
   def page_title
     if @title.present?

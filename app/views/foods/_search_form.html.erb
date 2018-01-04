@@ -1,0 +1,32 @@
+<%= form_for @search_form, url: :foods, html: { method: :get, class: 'navbar-search-form' } do |f| %>
+
+  <%= markup do |m| 
+    p = FoodSearchPresenter.new(f, self)
+    m.nav(class: 'search-fixed-under-nav') do
+      m.div(class: 'form-search-group') do
+        m.select(class: 'select-form-control', id: 'search_category_id', name: 'search_category_id') do
+          m << p.select_option('All items', '0', @search_form.search_category_id)
+          m << p.select_option('Vegitables', '1', @search_form.search_category_id)
+          m << p.select_option('Meats', '2', @search_form.search_category_id)
+          m << p.select_option('Dairy products', '3', @search_form.search_category_id)
+        end
+        m.input(value: @search_form.search_food_name, type: 'text', class: 'search-text-form-control', id: 'search_food_name', name: 'search_food_name')
+        m << f.submit('Search', class: "btn btn-primary")
+      end
+    end
+  
+    m.div(class: 'results-fixed-under-search') do
+      m.span @foods.count.to_s << ' results', class: 'pull-left'
+      m.span('Sort by:', class: 'pull-right') do
+        m.select(id: 'search_sort_id', name: 'search_sort_id', :onchange => 'this.form.submit();') do
+          m << p.select_option('Food name A-Z', '0', @search_form.search_sort_id)
+          m << p.select_option('Food name Z-A', '1', @search_form.search_sort_id)
+          m << p.select_option('Longest period in fridge', '2', @search_form.search_sort_id)
+          m << p.select_option('Longest period in freezer', '3', @search_form.search_sort_id)
+          m << p.select_option('Longest period in room', '4', @search_form.search_sort_id)
+        end
+      end
+    end
+  end %>
+
+<% end %>

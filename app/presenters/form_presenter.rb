@@ -8,5 +8,5 @@ class FormPresenter
     @form_builder = form_builder
     @view_context = view_context
   end
-  
+
 end

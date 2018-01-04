@@ -6,16 +6,10 @@ class FoodsController < ApplicationController
     params[:search_category_id] = '0' if params[:search_category_id].nil?
     params[:sort_id] = '0' if params[:sort_id].nil?
     params[:search_food_name].strip!
-    params[:search_category_id].strip!
-    params[:sort_id].strip!
 
     # call search method
-    @foods = Search::Food.new(food_params).search
-    
-    # define selected values
-    @search_food_name = params[:search_food_name]
-    @search_category_id = params[:search_category_id]
-    @sort_id = params[:sort_id]
+    @search_form = FoodSearchForm.new(food_params)
+    @foods = @search_form.search
   end
 
   def show 
@@ -27,7 +21,7 @@ class FoodsController < ApplicationController
       params.permit(
         :search_food_name, 
         :search_category_id,
-        :sort_id
+        :search_sort_id
       )
     end
 

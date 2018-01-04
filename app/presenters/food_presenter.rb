@@ -1,5 +1,5 @@
 class FoodPresenter < ModelPresenter
-  delegate :category_id, to: :object
+  delegate :category_id, :refrigeration_period, :freezing_period, :room_period, to: :object
 
   def color_class
     if category_id == 2 
@@ -22,7 +22,7 @@ class FoodPresenter < ModelPresenter
   end
   
   def ref_tab_button_block
-    if object.refrigeration_period.present?
+    if refrigeration_period.present?
       tab_button_block('Refrigeration', 
               'active ' << color_class << '_bg_color_dark', 
               '#1b')
@@ -30,7 +30,7 @@ class FoodPresenter < ModelPresenter
   end
   
   def room_tab_button_block
-    if object.room_period.present?
+    if room_period.present?
       tab_button_block('Room temperature', 
               'active ' << color_class << '_bg_color_dark', 
               '#1b')
@@ -38,7 +38,7 @@ class FoodPresenter < ModelPresenter
   end
   
   def freez_tab_button_block
-    if object.freezing_period.present?
+    if freezing_period.present?
       tab_button_block('Freezing', 
               color_class << '_bg_color_dark', 
               '#2b')
@@ -50,5 +50,5 @@ class FoodPresenter < ModelPresenter
       m << link_to(label_text, path, { 'data-toggle' => 'tab' })
     end
   end
-    
+      
 end

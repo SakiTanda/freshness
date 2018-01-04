@@ -22,17 +22,17 @@
       <div class="tab-content clearfix">
         <!-- content1 Refrigeration -->
         <% if @food.refrigeration_period.present? %>
-          <%= render 'tab_content_form1', {period: @food.refrigeration_period, method: 'Refrigeration'} %>
+          <%= render 'tab_content_form', {period: @food.refrigeration_period, method: 'Refrigeration', first: true} %>
         <% end %>
 
         <!-- content3 Room temperature -->
         <% if @food.room_period.present? %>
-          <%= render 'tab_content_form1', {period: @food.room_period, method: 'Room temperature'} %>
+          <%= render 'tab_content_form', {period: @food.room_period, method: 'Room temperature', first: true} %>
         <% end %>
 
         <!-- content2 Freezing -->
         <% if @food.freezing_period.present? %>
-          <%= render 'tab_content_form2', {period: @food.freezing_period, method: 'Freezing'} %>
+          <%= render 'tab_content_form', {period: @food.freezing_period, method: 'Freezing', first: false} %>
         <% end %>
       </div>
     </div>
