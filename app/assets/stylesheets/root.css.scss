@@ -26,12 +26,12 @@
 .overlay {
   position: absolute;
   bottom: -10%;
-  left: 100%;
   right: 0;
-  overflow: hidden;
-  width: 0;
   height: 29%;
   transition: .5s ease;
+  opacity: 0.6;
+  width: 0;
+  left: 100%;
 }
 .text_overlay {
   font-size: 200%;
@@ -41,11 +41,13 @@
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
-.container_overlay:hover.overlay {
+.container_overlay:hover input {
+  cursor: pointer;
+}
+.container_overlay:hover .overlay {
   width: 80%;
   left: 10%;
-  opacity:0.6;
-  cursor:pointer
+  cursor: pointer;
 }
 #notice {
   position: absolute;
