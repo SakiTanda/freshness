@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'root/index'
-  root 'root#index'
+  config = Rails.application.config.st
+  
+  namespace :fresh, path: config[:freshness][:path] do
+    root 'root#index'
 
-  resources :foods
-  resources :contacts, only: [:new, :create]
+    get 'root/index'
+    resources :foods
+    resource :contact, only: [:new, :create]
+  end
 
 end

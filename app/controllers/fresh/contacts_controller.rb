@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class Fresh::ContactsController < ApplicationController
 
   def new 
     @contact = Contact.new
@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.save
         ::MailSenderMailer.inquiry(@contact).deliver
-        format.html { redirect_to root_path, notice: 'Thanks for emailing us.' }
+        format.html { redirect_to fresh_root_path, notice: 'Thanks for emailing us.' }
       else
         format.html { render 'new' }
       end

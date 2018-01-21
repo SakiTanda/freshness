@@ -96,6 +96,10 @@ Rails.application.configure do
     :password => 'mqcdkjyfnwtprjgd',
     :authentication => :login,
     :enable_starttls_auto => true
-  } 
+  }
+  
+  config.st = {
+    freshness: { host: '', path: 'fresh' }
+  }
 
 end

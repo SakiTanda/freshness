@@ -1,4 +1,4 @@
-class FoodSearchForm
+class Fresh::FoodSearchForm
   include ActiveModel::Model
   
   attr_accessor :search_category_id, :search_food_name, :search_sort_id

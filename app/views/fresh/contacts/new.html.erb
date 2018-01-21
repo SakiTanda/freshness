@@ -3,7 +3,7 @@
 <% set_meta_tags description: 'Contact us through email' %>
 
 <!-- navigation bar -->  
-<%= render "/nav" %>
+<%= render "fresh/shared/nav" %>
 
 <!-- content -->
 <div id="mainContact">
@@ -13,7 +13,7 @@
   <div id="titleContact"><%= @title %></div>
   
   <!-- form -->
-  <%= form_for @contact do |f| %>
+  <%= form_for @contact, url: :fresh_contact do |f| %>
     <!-- name -->
     <div class="error"><%= @contact.errors.messages[:name][0] if @contact.errors.messages[:name].present? %></div>
     <%= f.text_field :name, :class => "form-control", :id => "txtName", :placeholder => "Enter name" %>

@@ -1,4 +1,4 @@
-<%= form_for @search_form, url: :foods, html: { method: :get, class: 'navbar-search-form' } do |f| %>
+<%= form_for @search_form, url: :fresh_foods, html: { method: :get, class: 'navbar-search-form' } do |f| %>
 
   <%= markup do |m| 
     p = FoodSearchPresenter.new(f, self)

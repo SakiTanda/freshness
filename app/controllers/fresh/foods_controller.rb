@@ -1,4 +1,4 @@
-class FoodsController < ApplicationController
+class Fresh::FoodsController < ApplicationController
 
   def index
     # initialize
@@ -8,7 +8,7 @@ class FoodsController < ApplicationController
     params[:search_food_name].strip!
 
     # call search method
-    @search_form = FoodSearchForm.new(food_params)
+    @search_form = Fresh::FoodSearchForm.new(food_params)
     @foods = @search_form.search
   end
 
