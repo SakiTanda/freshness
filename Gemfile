@@ -67,6 +67,7 @@ gem 'heroku'
 gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'rake', '< 11.0'
+gem 'rubyzip', '~> 1.2.1'
 group :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'spring-commands-rspec', '~> 1.0.1'
