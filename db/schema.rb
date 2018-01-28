@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628020018) do
+ActiveRecord::Schema.define(version: 20180124182410) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", limit: 20
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 20170628020018) do
 
   create_table "places", force: :cascade do |t|
     t.string "name", limit: 20
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",            null: false
+    t.string   "name_for_index",  null: false
+    t.string   "email",           null: false
+    t.string   "hashed_password", null: false
+    t.text     "bio"
+    t.string   "screen_name",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["name_for_index"], name: "index_users_on_name_for_index", unique: true
   end
 
 end

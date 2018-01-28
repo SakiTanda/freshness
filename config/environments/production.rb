@@ -99,7 +99,8 @@ Rails.application.configure do
   }
   
   config.st = {
-    freshness: { host: '', path: 'fresh' }
+    fresh: { host: '', path: 'fresh' },
+    twitter: { host: '', path: 'twitter' }
   }
 
 end

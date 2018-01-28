@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
   # define set_layout
   def set_layout
-    if params[:controller].match(%r{\A(fresh|test)/})
+    if params[:controller].match(%r{\A(fresh|twitter)/})
       Regexp.last_match[1]
     else
       'fresh'

@@ -1,0 +1,21 @@
+﻿/*********************** for common components ***************************/
+@import 'colors';
+
+#body {
+  background-color: #fcfbf9;
+}
+
+/* navigation bar */
+.navbar-brand {
+  img {
+    height: 30px;
+  }
+}
+/* override to bootstrap */
+.navbar {
+  border-radius: 0px;
+}
+.navbar-fixed-top {
+  border-width: 0;
+}
+

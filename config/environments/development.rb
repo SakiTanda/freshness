@@ -66,7 +66,8 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   config.st = {
-    freshness: { host: '', path: 'fresh' }
+    fresh: { host: '', path: 'fresh' },
+    twitter: { host: '', path: 'twitter' }
   }
   
 end
